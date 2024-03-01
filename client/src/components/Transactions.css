@@ -1,0 +1,13 @@
+.transaction-item {
+  margin-bottom: 10px;
+}
+
+.transaction-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transaction-details p {
+  margin: 0;
+}
+

@@ -5,12 +5,15 @@ const authRoutes = require("./routes/auth");
 const transactionRoutes = require("./routes/transactions");
 const cookieParser = require("cookie-parser");
 
+const cors = require("cors");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 

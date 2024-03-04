@@ -60,6 +60,23 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Fetch user profile data
+router.get("/user-profile", isAuthenticated, async (req, res) => {
+  try {
+    // Fetch the authenticated user's data from the database
+    const user = await User.findById(req.user.userId);
+
+    // Return the user's salary and monthly budget
+    res.status(200).json({
+      salary: user.salary,
+      monthlyBudget: user.monthlyBudget
+    });
+  } catch (error) {
+    console.error("Error fetching user profile data:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 // User Logout
 router.post("/logout", (req, res) => {
   // to do later

@@ -31,7 +31,8 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ## License
 
 - **Code**: Distributed under the GNU General Public License v3.0. See `LICENSE` for more information.
-- **Images**: Image used in this project is sourced from [Pexels](https://www.pexels.com/) and are subject to the Pexels License.
+- **Images**: Image used in this project is sourced from [Pexels](https://www.pexels.com/@panos-and-marenia-stavrinos-106103914/) by Panos and Marenia Stavrinos, and are subject to the Pexels License.
+
 
 ## Contact
 

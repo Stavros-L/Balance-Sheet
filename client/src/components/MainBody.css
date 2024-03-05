@@ -1,0 +1,8 @@
+.Maincontainer {
+  display: flex;
+  width: 100%;
+}
+
+.Maincontainer > * {
+  width: 100%;
+}

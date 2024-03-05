@@ -1,71 +1,75 @@
+// Signup.jsx
+
 import React, { useState } from "react";
 import Login from "./Login";
 import axios from "axios";
+import "./LoginSignup.css"; // Import the same CSS file used for Login styling
 
 function Signup() {
-  const [showLogin, setShowLogin] = useState(false); // State to track whether to show Login
-  const [username, setUsername] = useState(""); // State to store username input value
-  const [password, setPassword] = useState(""); // State to store password input value
+  const [showLogin, setShowLogin] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-// Function to handle form submission
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Make a POST request to signup endpoint
     axios
       .post(`http://localhost:5000/api/auth/register`, {
         username,
         password,
       })
       .then((response) => {
-        // Handle successful signup, redirecting to another page
         console.log("Signup successful:", response.data);
-        toggleLogin(); // Redirect to login page
-
+        toggleLogin();
       })
       .catch((error) => {
-       // Handle signup error, displaying an error message to the user
         console.error("Signup failed:", error);
         alert("Signup Error");
-
       });
-  
-    console.log("Signing up with username:", username, "and password:", password);
   };
 
-  // Function to toggle Login component
   const toggleLogin = () => {
-    setShowLogin(!showLogin); // Toggle the showLogin state
+    setShowLogin(!showLogin);
   };
 
   return (
-    <div>
-      {/* Render Login component if showLogin is true */}
-      {showLogin ? <Login /> : (
+    <div className="LoginRender">
+      {showLogin ? (
+        <Login />
+      ) : (
         <div>
           <h2>Sign Up</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="username">Username</label>
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="username" className="form-label">
+                Username
+              </label>
               <input
                 type="text"
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                className="form-input"
               />
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="form-input"
               />
             </div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="btn-login">
+              Sign Up
+            </button>
           </form>
-          {/* Text link to toggle Login component */}
-          <p onClick={toggleLogin} style={{ cursor: "pointer", color: "blue" }}>Go back to Login</p>
+          <p onClick={toggleLogin} className="login-link">
+            Go back to Login
+          </p>
         </div>
       )}
     </div>

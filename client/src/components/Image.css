@@ -1,9 +1,7 @@
-/* client/src/components/Image.css */
 .image-container {
-    width: 100%; /* Adjust as needed */
-    height: 40vh; /* Adjust as needed */
-    background-image: url("./media/pexels-panos-and-marenia-stavrinos-9648231.jpg"); /* Path to your image file */
-    background-position: center bottom;
-    background-size:cover;
-  }
-  
+  width: 100%;
+  height: 40vh;
+  background-image: url("./media/pexels-panos-and-marenia-stavrinos-9648231.jpg"); /* Path to image file */
+  background-position: center bottom;
+  background-size: cover;
+}

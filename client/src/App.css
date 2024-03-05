@@ -2,26 +2,37 @@
   text-align: center;
 }
 
-.MainBody { grid-area: MainBody; background-color: blueviolet; }
+.MainBody {
+  grid-area: MainBody;
+  background-color: pink;
+}
 
-.LeftBar { grid-area: LeftBar; background-color: greenyellow; }
+.LeftBar {
+  grid-area: LeftBar;
+  background-color: lightblue;
+  text-align: center;
+}
 
-.Image { grid-area: Image;}
+.Image {
+  grid-area: Image;
+}
 
-.TopBar { grid-area: TopBar; background-color: lightblue; }
+.TopBar {
+  grid-area: TopBar;
+  background-color: lightblue;
+  text-align: right;
+}
 
-
-
-
-.container {  display: grid;
-  grid-template-columns: 0.4fr 1.6fr;
-  grid-template-rows: 0.2fr 0.7fr 2.1fr;
+.container {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: auto auto 1.9fr;
   gap: 0px 0px;
-  grid-auto-flow: row;
-  justify-items: stretch;
   grid-template-areas:
     "TopBar TopBar"
     "Image Image"
     "LeftBar MainBody";
-}
 
+  height: 100vh;
+}

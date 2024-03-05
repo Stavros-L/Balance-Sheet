@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Signup from "./Signup";
 import axios from "axios";
 
+import "./LoginSignup.css";
+
 function Login() {
   const [showSignup, setShowSignup] = useState(false);
   const [username, setUsername] = useState("");
@@ -16,14 +18,15 @@ function Login() {
         password,
       })
       .then((response) => {
-         // Handle successful login, saving token and redirecting to another page
+        // Handle successful login, saving token and redirecting to another page
         console.log("Login successful:", response.data);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", response.data.user);
         // Redirect to MainBody component
         window.location.href = "/"; // Redirect to the root URL
       })
       .catch((error) => {
-       // Handle Login error, displaying an error message to the user
+        // Handle Login error, displaying an error message to the user
         console.error("Login failed:", error);
         if (error.response.status === 401) {
           alert("Incorrect username or password.");
@@ -38,8 +41,10 @@ function Login() {
   };
 
   return (
-    <div>
-      {showSignup ? <Signup /> : (
+    <div className="login-container">
+      {showSignup ? (
+        <Signup />
+      ) : (
         <div>
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
@@ -63,7 +68,9 @@ function Login() {
             </div>
             <button type="submit">Login</button>
           </form>
-          <p onClick={toggleSignup} style={{ cursor: "pointer", color: "blue" }}>Go to Sign Up</p>
+          <p className="signup-link" onClick={toggleSignup}>
+            Go to Sign Up
+          </p>
         </div>
       )}
     </div>

@@ -1,0 +1,15 @@
+/* CSS for the logout button */
+button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1em;
+  margin-right: 2em;
+}
+
+button:hover {
+  background-color: #45a049;
+}

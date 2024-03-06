@@ -60,8 +60,10 @@ function Profile() {
   };
 
   return (
-    <div className="profile-container">
+    <div>
       <h2 className="profile-header">Profile</h2>
+    <div className="profile-container">
+      
       <form className="profile-form" onSubmit={handleSubmit}>
         <label>
           Salary:
@@ -73,6 +75,7 @@ function Profile() {
         </label>
         <button type="submit">Update Profile</button>
       </form>
+    </div>
     </div>
   );
 }
